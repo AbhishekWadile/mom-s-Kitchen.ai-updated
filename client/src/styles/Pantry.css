@@ -1,0 +1,99 @@
+ /*General Styling */
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    
+    .pantry-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .sidebar {
+      background-color: #ed7c70;
+      padding: 20px;
+      border-radius: 8px;
+      color: rgb(0, 0, 0);
+      width: 50%;
+      min-width: 350px;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    
+    h1 {
+      font-size: 24px;
+    }
+    
+    h2 {
+      font-size: 20px;
+    }
+    
+  
+    .ingredient-count {
+      font-weight: bold;
+    }
+    
+  
+    .ingredient-input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #0c0c0c;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    
+    
+    .category-box {
+      margin-top: 20px;
+    }
+    
+    .ingredient-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .ingredient-btn {
+      background-color: #e0e0e0;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .ingredient-btn:hover {
+      background-color: #a29e9e;
+    }
+    
+
+    .get-started-section {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px; 
+    }
+    
+    .get-started-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    
+    .get-started-btn:hover {
+      background: #388E3C;
+    }
+    
