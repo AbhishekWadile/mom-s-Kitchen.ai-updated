@@ -38,6 +38,8 @@ Feeling fancy? Book your favorite professional chef to cook for your occasion or
 | **RESTFull APIs | To fetch the entire data |
 
 ---
+# Which Stack I used?
+## MERN stack to develop this project 
 
 ## 🚀 Getting Started
 
