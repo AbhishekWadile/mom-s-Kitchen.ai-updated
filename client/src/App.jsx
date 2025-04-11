@@ -33,6 +33,7 @@ import Admin_page from "./pages/Admin_page";
 import Ad_userDetails from "./Admin/Ad_userDetails";
 import Ad_addProduct from "./Admin/Ad_addProduct";
 import MomsBot from "./components/MomsBot";
+import NonVegChef_info from "./pages/NonVegChef_info";
 function App() {
   const locomotiveScroll = new LocomotiveScroll();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -143,6 +144,7 @@ function App() {
             element={<ResetPassword />}
           />
           <Route path="/invitechef/chefinfo/:chef_Id/:chId" element={<Chef_info/>}></Route>
+          <Route path="/invitechef/nonvegchefinfo/:chef_Id/:chId" element={<NonVegChef_info/>}></Route>
           <Route path="/booked" element={<ThankyouBookCh/>}></Route>
           <Route path="/admin" element={<Admin_page/>}>
             <Route path="user-details" element={<Ad_userDetails/>}/>

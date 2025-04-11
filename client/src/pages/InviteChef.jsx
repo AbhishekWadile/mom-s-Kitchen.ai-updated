@@ -5,6 +5,7 @@ import ChefServices from "../components/ChefServices";
 import Chef_Card from "../components/Chef_Card"
 import Chefamain_card from "../components/Chefamain_card";
 import Footer from "../components/Footer";
+import NonVegChefModel from "../components/NonVegChefs";
 
 function InviteChef() {
   return (
@@ -35,9 +36,14 @@ function InviteChef() {
         <ChefServices/>
       </div>
       <div className="mt-4 mb-[10vh]">
-        <h1 className="text-3xl font-poppins font-bold w-full flex justify-center mt-6 ">Our Chefs</h1>
+        <h1 className="text-3xl font-poppins font-bold w-full flex justify-center mt-6 ">Our Veg Chefs</h1>
         <div className="w-full flex justify-center "><hr  className="w-[20%] border-2xl border-black"/></div>
         <Chefamain_card/>
+      </div>
+      <div className="mt-4 mb-[10vh]">
+        <h1 className="text-3xl font-poppins font-bold w-full flex justify-center mt-6 ">Our Non-Veg Chefs</h1>
+        <div className="w-full flex justify-center "><hr  className="w-[20%] border-2xl border-black"/></div>
+        <NonVegChefModel/>
       </div>
       <Footer/>
     </div>
