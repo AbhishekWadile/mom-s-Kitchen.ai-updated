@@ -64,6 +64,8 @@ npm install
 npm start
 ```
 
+## Important Notice:- If you change any thing into the code and want to push back to this repo you have to push on master branch only do not push your code on main branch.
+
 ## 🙌 Final Words
 
 Mom's Kitchen AI was built with the vision of making cooking smarter, easier, and more fun. Whether you're a beginner trying to make your first meal or a home chef looking to spice things up, our platform is here to help.
