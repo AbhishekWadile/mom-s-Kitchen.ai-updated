@@ -29,6 +29,8 @@ const InviteChef = require('./Routes/InviteChef')
 const Grating = require('./Routes/Grating')
 const Chef_com_API = require('./Routes/Chef_com_API')
 const Bookchef = require('./Routes/BookChef')
+const BlogCate = require('./Routes/BlogCate')
+const AllCate = require('./Routes/AllCate')
 // const Admin_API = require('./Routes/Admin_API')
 var PORT = process.env.PORT||8080;
 
@@ -79,6 +81,8 @@ let selectedIngredients = [];
 app.get("/", (req, res) => {
     res.send("Server is running successfully!");
 });
+
+app.use('/uploads', express.static('uploads'));
 
 // Pantry Route - Fetches Available Ingredients
 app.get("/pantry", (req, res) => {
@@ -137,6 +141,10 @@ app.post("/chatbot", (req, res) => {
   
 ///jass code end
 
+//Blog Category
+
+app.use(BlogCate)
+app.use(AllCate)
 // app.use('/admin',Admin_API)
 io.on("connection", (socket) => {
     console.log("A user connected");

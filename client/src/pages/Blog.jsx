@@ -1,18 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Aftnav from "../components/Aftnav";
 import Footer from "../components/Footer";
 import intro from "../images/Blog page/intro-1645057933.jpg";
-import break1 from "../images/Blog page/vecteezy_ai-generated-plate-of-breakfast-food-with-eggs-bacon-and_41913265.jpeg.jpg"
-import break2 from "../images/Blog page/salad-from-tomatoes-cucumber-red-onions-lettuce-leaves-healthy-summer-vitamin-menu-vegan-vegetable-food-vegetarian-dinner-table.jpg"
-import break3 from "../images/Blog page/chicken-skewers-with-slices-sweet-peppers-dill.jpg"
-import break4 from "../images/Blog page/pexels-valeriya-724667.jpg"
-import break5 from "../images/Blog page/pexels-suju-1132558.jpg"
-import break6 from "../images/Blog page/pexels-dana-tentis-118658-691114.jpg"
-import break7 from "../images/Blog page/pexels-pelageia-zelenina-58865108-10000000.jpg"
-import break8 from "../images/Blog page/pexels-valeriya-19859349.jpg"
-import break9 from "../images/Blog page/pexels-yuuilina-10254481.jpg"
+
+import break7 from "../images/Blog page/pexels-pelageia-zelenina-58865108-10000000.jpg";
+import break8 from "../images/Blog page/pexels-valeriya-19859349.jpg";
+import break9 from "../images/Blog page/pexels-yuuilina-10254481.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Blog() {
+  const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category) => {
+    navigate(`/blog/:${category}`); // Navigate to the category page
+  };  
+
+  useEffect(() => {
+    // Fetch from backend
+    axios
+      .get("http://localhost:8080/categories")
+      .then((res) => {
+        setCategories(res.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching categories:", err);
+      });
+  }, []);
   return (
     <div className="font-[poppins]">
       <div className="bg-[#f6f6f6]  text-center font-sans">
@@ -47,25 +62,19 @@ function Blog() {
           {/* Categories Grid */}
           <div className="flex justify-center items-center w-[100%]">
             <div className="grid grid-cols-2 w-[90%] md:grid-cols-3 gap-4 mt-6 px-4">
-              {[
-                { title: "Breakfast", image: break1 },
-                { title: "Salads", image: break2 },
-                { title: "Appetizer", image: break3 },
-                { title: "Soups", image: break4},
-                { title: "Desserts", image: break5 },
-                { title: "Main Dishes", image: break6 },
-              ].map((item, index) => (
+              {categories.map((item, index) => (
                 <div
-                  key={index}
+                  key={item._id}
+                  onClick={() => handleCategoryClick(item.category_name)}
                   className="relative rounded overflow-hidden shadow-md hover:scale-[1.03] hover:cursor-pointer transition-transform duration-300"
                 >
                   <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-[150px] object-cover"
+                    src={`http://localhost:8080/${item.path.replace(/\\/g, "/")}`}
+                    alt={item.category_name}
+                    className="w-full h-[150px] hover:scale-[1.03] hover:cursor-pointer transition-transform duration-300 object-cover"
                   />
                   <div className="absolute text-2xl flex flex-col gap-1 font-semibold bottom-[6vh] left-2 bg-black bg-opacity-30 text-white p-1  rounded">
-                    {item.title}
+                    {item.category_name}
                     <span className="text-sm">View All Recipes</span>
                   </div>
                 </div>
@@ -91,7 +100,7 @@ function Blog() {
                 <img
                   src={break7}
                   alt="Real Italian Pasta"
-                  className="w-full h-full max-h-[420px] object-cover"
+                  className="w-full h-full hover:scale-[1.03] hover:cursor-pointer transition-transform duration-300 object-cover max-h-[420px]"
                 />
                 <div className="absolute bottom-[53vh] left-2 bg-black bg-opacity-60 text-white p-1 text-2xl font-semibold rounded">
                   Real Italian Pasta
@@ -117,7 +126,7 @@ function Blog() {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover"
+                      className="w-full hover:scale-[1.03] hover:cursor-pointer transition-transform duration-300 h-full object-cover"
                     />
                     <div className="absolute bottom-[21vh] left-2 bg-black bg-opacity-30 text-white p-1 text-2xl font-semibold rounded">
                       {item.title}

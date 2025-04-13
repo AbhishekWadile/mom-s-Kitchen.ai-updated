@@ -34,6 +34,8 @@ import Ad_userDetails from "./Admin/Ad_userDetails";
 import Ad_addProduct from "./Admin/Ad_addProduct";
 import MomsBot from "./components/MomsBot";
 import NonVegChef_info from "./pages/NonVegChef_info";
+import Ad_addBlogCate from "./Admin/Ad_addBlogCate";
+import Category from "./components/Category";
 function App() {
   const locomotiveScroll = new LocomotiveScroll();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -151,6 +153,8 @@ function App() {
             <Route path="add-product" element={<Ad_addProduct/>}/>
           </Route>
           <Route path="/chatbot" element={<MomsBot />} />
+          <Route path="/addCate" element={<Ad_addBlogCate />} />
+          <Route path="/blog/:categoryName" element={<Category />} />
         </Routes>
       </BrowserRouter>
     </div>
